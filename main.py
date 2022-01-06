@@ -46,9 +46,6 @@ plugboard = Plugboard({"H": "R", "R": "H"})
 def get_new_character(character, rotors, plugboard):
 
     character = plugboard.pass_through(character)
-    if character == " ":
-        return(" ")
-
     for i in range(4):
         character = rotors[i].pass_through(character)
     for i in range(2, -1, -1):
@@ -64,6 +61,9 @@ def get_new_character(character, rotors, plugboard):
 def main(message, rotors, plugboard):
     output_string = ""
     for character in message:
+        if character == " ":
+            output_string += " "
+            continue
         output_string += get_new_character(character, rotors, plugboard)
     return(output_string)
 

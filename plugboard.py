@@ -28,6 +28,10 @@ class Plugboard:
         self.connections[a] = b
         self.connections[b] = a
 
+    # pass_through takes a letter, and checks if it is connected to any plugs
+    # if it is, it returns the connected letter. Otherwise it returns the
+    # original letter (no change)
+
     def pass_through(self, letter):
         letter = letter.upper()
         if letter in self.connections:
