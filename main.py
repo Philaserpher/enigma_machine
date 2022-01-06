@@ -40,8 +40,7 @@ plugboard = Plugboard({"H": "R", "R": "H"})
 # this function takes a character, a list of rotrs and plugboard and returns
 # the character that an enigma machine would produce. The order is plugboard
 # -> rotors(1, 2, 3) -> reflector -> rotors(3, 2, 1) -> plugboard -> output
-# it ignores spaces, as is not designed to receive anything other than
-# letters or spaces
+# it is not designed to receive anything other than letters
 
 def get_new_character(character, rotors, plugboard):
 
@@ -57,6 +56,10 @@ def get_new_character(character, rotors, plugboard):
 
 
 # main takes a string and runs all characters through the enigma machine
+# spaces are just passed through. After obtaining the string, we rotate
+# the first rotor. If it completed a revolution, we rotate the second,
+# and similarly the third. To test that this function works, we can set
+# the test_string to AAAAAAAA and will obtain MMIUPHZQ
 
 def main(message, rotors, plugboard):
     output_string = ""
@@ -65,10 +68,14 @@ def main(message, rotors, plugboard):
             output_string += " "
             continue
         output_string += get_new_character(character, rotors, plugboard)
+        if rotors[0].rotate():
+            print("A")
+            if rotors[1].rotate():
+                rotors[2].rotate()
     return(output_string)
 
 
 if __name__ == "__main__":
-    test_string = "Hello World"
+    test_string = "Hello world"
     test_string = test_string.upper()
     print(main(test_string, rotors, plugboard))
