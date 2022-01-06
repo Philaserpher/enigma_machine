@@ -4,5 +4,5 @@ class Reflector:
         self.connections = connections
 
     def pass_through(self, letter):
-        letter.upper()                      # ensure the letter is uppercase
+        letter = letter.upper()             # ensure the letter is uppercase
         return(self.connections[letter])    # return the reflected letter

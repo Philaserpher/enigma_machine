@@ -14,7 +14,7 @@ class Rotor:
         return(False)
 
     def pass_through(self, letter):
-        letter.upper()
+        letter = letter.upper()
         # ensure the letter is uppercase
         # convert letter into a number, a = 0, z = 25
         letter = ord(letter) - 65

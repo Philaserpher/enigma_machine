@@ -1,5 +1,6 @@
 from rotors import Rotor
 from reflector import Reflector
+from plugboard import Plugboard
 
 # set up dictionaries for all rotors and reflector
 CONNECTIONS_1 = {"A": "E", "B": "K", "C": "M", "D": "F", "E": "L", "F": "G",
@@ -26,6 +27,8 @@ CONNECTIONS_REFLECTOR = {"A": "E", "B": "J", "C": "M", "D": "Z", "E": "A",
 
 rotors = [Rotor(CONNECTIONS_1), Rotor(CONNECTIONS_2), Rotor(
     CONNECTIONS_3), Reflector(CONNECTIONS_REFLECTOR)]
+plugboard = Plugboard()
+# create list of three rotors + reflector and plugboard
 
 
 def pass_through_rotors(letter, rotor):
