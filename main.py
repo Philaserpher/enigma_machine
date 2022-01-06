@@ -33,14 +33,20 @@ def pass_through_rotors(letter, rotor):
 
 
 def main(test_string, rotors):
-    for i in range(4):
-        test_string = rotors[i].pass_through(test_string)
-        print(test_string)
-    for i in range(2, -1, -1):
-        test_string = rotors[i].pass_through(test_string)
-        print(test_string)
+    output_string = ""
+    for x in test_string:
+        character = x
+        if character == " ":
+            output_string += " "
+            continue
+        for i in range(4):
+            character = rotors[i].pass_through(character)
+        for i in range(2, -1, -1):
+            character = rotors[i].pass_through(character)
+        output_string += character
+    return(output_string)
 
 
 if __name__ == "__main__":
-    test_string = "A"
-    main(test_string, rotors)
+    test_string = "Hello World"
+    print(main(test_string, rotors))
