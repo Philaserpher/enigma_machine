@@ -7,11 +7,11 @@ CONNECTIONS_1 = {"A": "E", "B": "K", "C": "M", "D": "F", "E": "L", "F": "G",
                  "M": "O", "N": "W", "O": "Y", "P": "H", "Q": "X", "R": "U",
                  "S": "S", "T": "P", "U": "A", "V": "I", "W": "B", "X": "R",
                  "Y": "C", "Z": "J"}
-CONNECTIONS_2 = {"A": "E", "B": "K", "C": "M", "D": "F", "E": "L", "F": "G",
-                 "G": "D", "H": "Q", "I": "V", "J": "Z", "K": "N", "L": "T",
-                 "M": "O", "N": "W", "O": "Y", "P": "H", "Q": "X", "R": "U",
-                 "S": "S", "T": "P", "U": "A", "V": "I", "W": "B", "X": "R",
-                 "Y": "C", "Z": "J"}
+CONNECTIONS_2 = {"A": "A", "B": "J", "C": "D", "D": "K", "E": "S", "F": "I",
+                 "G": "R", "H": "U", "I": "X", "J": "B", "K": "L", "L": "H",
+                 "M": "W", "N": "T", "O": "M", "P": "C", "Q": "Q", "R": "G",
+                 "S": "Z", "T": "N", "U": "P", "V": "Y", "W": "F", "X": "V",
+                 "Y": "O", "Z": "E"}
 CONNECTIONS_3 = {"A": "E", "B": "K", "C": "M", "D": "F", "E": "L", "F": "G",
                  "G": "D", "H": "Q", "I": "V", "J": "Z", "K": "N", "L": "T",
                  "M": "O", "N": "W", "O": "Y", "P": "H", "Q": "X", "R": "U",
@@ -33,10 +33,14 @@ def pass_through_rotors(letter, rotor):
 
 
 def main(test_string, rotors):
-    for x in range(7):
-        print(x)
+    for i in range(4):
+        test_string = rotors[i].pass_through(test_string)
+        print(test_string)
+    for i in range(2, -1, -1):
+        test_string = rotors[i].pass_through(test_string)
+        print(test_string)
 
 
 if __name__ == "__main__":
-    test_string = "Hello"
+    test_string = "A"
     main(test_string, rotors)
