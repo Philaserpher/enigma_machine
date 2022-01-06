@@ -27,7 +27,7 @@ CONNECTIONS_REFLECTOR = {"A": "E", "B": "J", "C": "M", "D": "Z", "E": "A",
 
 rotors = [Rotor(CONNECTIONS_1), Rotor(CONNECTIONS_2), Rotor(
     CONNECTIONS_3), Reflector(CONNECTIONS_REFLECTOR)]
-plugboard = Plugboard()
+plugboard = Plugboard({"H": "R", "R": "H"})
 # create list of three rotors + reflector and plugboard
 
 
@@ -35,10 +35,11 @@ def pass_through_rotors(letter, rotor):
     return rotor.pass_through(letter)
 
 
-def main(test_string, rotors):
+def main(test_string, rotors, plugboard):
     output_string = ""
     for x in test_string:
         character = x
+        character = plugboard.pass_through(character)
         if character == " ":
             output_string += " "
             continue
@@ -46,10 +47,11 @@ def main(test_string, rotors):
             character = rotors[i].pass_through(character)
         for i in range(2, -1, -1):
             character = rotors[i].pass_through(character)
+        character = plugboard.pass_through(character)
         output_string += character
     return(output_string)
 
 
 if __name__ == "__main__":
-    test_string = "Hello World"
-    print(main(test_string, rotors))
+    test_string = "H"
+    print(main(test_string, rotors, plugboard))
