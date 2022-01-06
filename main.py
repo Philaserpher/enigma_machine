@@ -34,7 +34,7 @@ CONNECTIONS_REFLECTOR = {"A": "E", "B": "J", "C": "M", "D": "Z", "E": "A",
 
 rotors = [Rotor(CONNECTIONS_1), Rotor(CONNECTIONS_2), Rotor(
     CONNECTIONS_3), Reflector(CONNECTIONS_REFLECTOR)]
-plugboard = Plugboard({"H": "R", "R": "H"})
+plugboard = Plugboard({"H": "R", "R": "H", "A": "C", "C": "A"})
 
 
 # this function takes a character, a list of rotrs and plugboard and returns
@@ -76,6 +76,6 @@ def main(message, rotors, plugboard):
 
 
 if __name__ == "__main__":
-    test_string = "Hello world"
+    test_string = "Hello World"
     test_string = test_string.upper()
     print(main(test_string, rotors, plugboard))
