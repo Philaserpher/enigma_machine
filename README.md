@@ -1,5 +1,6 @@
 # enigma_machine
-A simple enigma machine simulator.
+
+A simple enigma machine simulator. Sorry for account gore on commits, was accidentally using my uni account at times.
 
 An enigma machine is an encryption machine used before and during the Second World War by the Axis to encrypt their communications. Breaking the Enigma machine was key to allied victory, as it allowed them to intercept and read all of the communications from the German Army and Navy. There are three main features of the enigma machine which made it incredibly difficult to crack.
 
@@ -9,7 +10,7 @@ When a button is pressed, the signal first goes to the plugboard. Here, we check
 
 Then the signal, now "C" heads over to the rotors. It goes in through the "C" connector on the first rotor. Every rotor connects an input letter with an output letter. For example, rotor 1 connects "A" to "E", and "B" to "K". However, unlike the plugboard, they dont have to be connected to each other. So although "A" is connected to "E", "E" is connected to "L". So in this case, our "C" signal becomes an "M". When then repeat this process through rotors 2 and 3, making our letter "W" and "B" respectively. There are different rotors, but we always choose 3. For the purpose of this program, rotors I, II and III of the original enigma machine are being used.
 
-We then get to the reflector, which has similar wiring to the rotors. In this case, our letter "B" becomes "J", and it is sent back through rotors 3, 2 and 1 (in that order, reverse of the previous). Our letter therefore becomes "Z", then "E", then "L". 
+We then get to the reflector, which has similar wiring to the rotors. In this case, our letter "B" becomes "J", and it is sent back through rotors 3, 2 and 1 (in that order, reverse of the previous). Our letter therefore becomes "Z", then "E", then "L".
 
 Finally, we run the letter through the plugboard again. In this case, "L" is not connected to anything, but if it was we would replace it like we did earlier.
 
