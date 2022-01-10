@@ -55,11 +55,16 @@ def get_new_character(character, rotors, plugboard):
     return(character)
 
 
+def get_rotor_position(rotors):
+    return(rotors[0].position, rotors[1].position, rotors[2].position)
+
+
 # main takes a string and runs all characters through the enigma machine
 # spaces are just passed through. After obtaining the string, we rotate
 # the first rotor. If it completed a revolution, we rotate the second,
 # and similarly the third. To test that this function works, we can set
 # the test_string to AAAAAAAA and will obtain MMIUPHZQ
+
 
 def main(message, rotors, plugboard):
     output_string = ""
@@ -77,8 +82,9 @@ def main(message, rotors, plugboard):
 
 def decode(test_string):
     test_string = test_string.upper()
-    return(main(test_string, rotors, plugboard))
+    return(((main(test_string, rotors, plugboard)),
+            get_rotor_position(rotors)))
 
 
 if __name__ == '__main__':
-    print(decode("Hello World"))
+    print(decode("Hello World")[0])

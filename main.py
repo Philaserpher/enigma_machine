@@ -10,15 +10,30 @@ message = ""
 
 def handle_keypress(event):
     global message
-    enigma_char = decode(event.char)
-    message += enigma_char
-    label.configure(text=message)
-    print(enigma_char)
+    enigma_info = decode(event.char)
+    message += enigma_info[0]
+    for i, rotor in enumerate(rotor_info):
+        rotor.configure(text=(enigma_info[1][i]+1))
+    text.configure(text=message)
+    print(enigma_info[1])
+    print(enigma_info[0])
 
 
-label = tk.Label(master=window, textvariable=message, font=("Arial", 30))
-label.pack()
+def close(event):
+    window.destroy()
+
+
+rotor_info = [tk.Label(master=window, text="1", font=("Arial", 50)),
+              tk.Label(master=window, text="1", font=("Arial", 50)),
+              tk.Label(master=window, text="1", font=("Arial", 50))]
+for i in rotor_info:
+    i.pack()
+
+text = tk.Label(master=window, text="", font=("Arial", 30))
+text.pack()
+
 window.bind("<Key>", handle_keypress)
+window.bind("<Escape>", close)
 
 # Run the event loop
 window.mainloop()
